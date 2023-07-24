@@ -5,7 +5,7 @@ import './../styles/App.css';
 const App = () => {
   let [user, setUser] = useState({name: "", email: "", password: ""})
 
-console.log("user", user)
+console.log(user)
 
 function validateForm(event){
 event.preventDefault()
