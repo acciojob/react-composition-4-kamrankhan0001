@@ -3,33 +3,40 @@ import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
-const[name, setName]=useState("");
-const[email, setEmail]=useState("");
-const[password, setPassword]=useState("");
+  let [user, setUser] = useState({name: "", email: "", password: ""})
 
-function handleClick(){
-setName(name,email,password)
+console.log("user", user)
+
+function validateForm(event){
+event.preventDefault()
 }
 
   return (
     <div>
-      <form onSubmit={handleClick}>
+      <form onSubmit={validateForm}>
       <div>
         <label>Name</label>
-        <input type="text"/>
+        <input type="text"
+        onChange={(event)=>setUser({...user, name: event.target.value})}/>
         </div>
 
         <div>
         <label>Email</label>
-        <input type="email"/>
+        <input type="email"
+        onChange={(event)=>setUser({...user, email: event.target.value})}
+        />
         </div>
         
         <div>
         <label>Password</label>
-        <input type="password"/>
+        <input type="password"
+        onChange={(event)=>setUser({...user, password: event.target.value})}
+        />
         </div>
+
+        <button>Submit</button>
         </form>
-        <button onClick={handleClick}>Submit</button>
+        
     </div>
   )
 }
